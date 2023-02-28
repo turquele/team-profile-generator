@@ -107,3 +107,42 @@ function getInternInfo() {
     menuOptions();
   });
 }
+
+function menuOptions() {
+    inquirer
+  .prompt([
+    {
+        type: 'list',
+        message: `Please select an option`,
+        choices : ['Add an engineer', 'Add an intern', 'Finish building the team'],
+        name: 'option',
+    },
+  ])
+  .then((response) => {
+    console.log(response)
+    switch (response.option) {
+        case 'Add an engineer':
+            getEngineerInfo();
+            break;
+        case 'Add an intern':
+            getInternInfo();
+            break;
+        case 'Finish building the team':
+            writeToFile(outputPath, render(team));
+            break;
+    }
+  });
+}
+
+function writeToFile (fileName, data) {
+  fs.writeFile(fileName, data, (err) =>
+  err ? console.error(err) : console.log('Success!')
+  );
+}
+
+function init() {
+getManagerInfo();
+}
+
+init();
+
