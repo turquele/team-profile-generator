@@ -15,6 +15,8 @@ Download the repository to a local folder. Please note that Node.js is required.
 
 ## Usage
 Add the information for each user when prompted in the terminal. The result file will be in the output file.
+Screenshot of the rendered html:
+![image](assets/screenshot.png)
 
 ## Tests
 Tested using jest. Tests:17 passed, 17 total
